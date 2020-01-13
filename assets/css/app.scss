@@ -1,3 +1,370 @@
+@import "~font-awesome";
+
 body {
-    background-color: lightgray;
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    color: #333;
+    line-height: 1.5em;
+    box-sizing: border-box;
+}
+
+p {
+    margin-bottom: 1em;
+}
+
+form input,
+form textarea,
+form select {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    margin-bottom: 1em;
+    padding: 0.5em;
+    color: #555;
+    background-color: #fff;
+}
+
+.container {
+    width: 1170px;
+    margin: 0 auto;
+    padding: 0 1em;
+    box-sizing: border-box;
+}
+
+.btn {
+    display: inline-block;
+    padding: 13px 32px;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.btn.btn-dark {
+    background-color: #005b88;
+}
+
+.btn.btn-dark:hover {
+    background-color: #003955;
+}
+
+.btn.btn-light {
+    background-color: #00b3cc;
+}
+
+.btn.btn-light:hover {
+    background-color: #008699;
+}
+
+/**
+    HEADER TOP
+ */
+
+.header-top {
+    background-color: #00b3cc;
+    padding: 1em 0;
+    color: white;
+}
+
+.header-top > .container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-top .social-networks a {
+    margin-right: 1em;
+    color: white;
+}
+
+.header-top .contact-infos ul {
+    display: flex;
+    margin: 0;
+    list-style-type: none;
+}
+
+.header-top .contact-infos ul li {
+    margin-right: 1em;
+}
+
+.header-top .contact-infos ul li a {
+    text-decoration: none;
+    color: white;
+}
+
+/**
+    HEADER MIDDLE
+ */
+
+.header-middle {
+    background-color: #f7f7f7;
+    padding: 1em 0;
+}
+
+.header-middle > .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-middle .logo {
+    display: flex;
+    align-items: center;
+    font-size: 4em;
+    font-family: 'Tangerine', cursive;
+    color: crimson;
+}
+
+.header-middle .logo i.fa {
+    font-size: 1.5em;
+    margin-right: 0.2em;
+}
+
+.header-middle .status {
+    font-size: 2em;
+}
+
+.header-middle .status .open {
+    color: #00b3cc;
+}
+
+.header-middle .status .close {
+    color: #cc0000;
+}
+
+/**
+    HEADER MENU
+ */
+
+.header-menu ul {
+    display: flex;
+    list-style-type: none;
+}
+
+.header-menu ul li a {
+    display: inline-block;
+    padding: 1em;
+    color: #888;
+    text-decoration: none;
+    transition: 0.5s;
+}
+
+.header-menu ul li:hover a {
+    background-color: #00547e;
+    color: white;
+}
+
+/**
+    HOME TOP
+ */
+
+.home-top {
+    height: 400px;
+    font-size: 2em;
+    background-image: url("../images/bg.jpg");
+    background-size: cover;
+}
+
+.home-top > .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.home-top h1 {
+    margin: 0;
+    color: #00b3cc;
+}
+
+/**
+    FOOTER
+ */
+
+footer.main-footer {
+    margin-top: 1em;
+    background-color: #111111;
+    color: #777777;
+}
+
+footer.main-footer > .container {
+    display: flex;
+    padding: 1em;
+}
+
+footer.main-footer > .container > * {
+    flex: 1;
+}
+
+footer.main-footer h3 {
+    color: white;
+}
+
+footer.main-footer .logo {
+    display: flex;
+    align-items: center;
+    font-size: 3em;
+    font-family: 'Tangerine', cursive;
+    color: crimson;
+}
+
+footer.main-footer .logo i.fa {
+    font-size: 1.5em;
+    margin-right: 0.2em;
+}
+
+footer.main-footer ul.contact-infos {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+footer.main-footer ul.contact-infos li a {
+    text-decoration: none;
+    color: #777777;
+}
+
+footer.main-footer ul.contact-infos li .fa {
+    width: 16px;
+}
+
+footer.main-footer table.opening-hours {
+    width: 100%;
+    border-spacing: 0;
+}
+
+footer.main-footer table.opening-hours tr.today {
+    color: white;
+}
+
+footer.main-footer table.opening-hours tr td {
+    border-bottom: solid 1px #333333;
+}
+
+footer.main-footer table.opening-hours tr td.hours {
+    text-align: center;
+}
+
+/**
+    HOME BOXES
+ */
+
+.home-boxes {
+    margin-top: -70px;
+}
+
+.home-boxes > .container {
+    display: flex;
+}
+
+.home-boxes > .container > * {
+    flex: 1;
+    padding: 1em;
+    background-color: #00547e;
+    color: white;
+}
+
+.home-boxes > .container > *:nth-child(even) {
+    background-color: #00b3cc;
+}
+
+.home-boxes h3 {
+    margin: 0.5em 0;
+    font-size: 1.5em;
+    text-transform: uppercase;
+}
+
+.home-boxes a.phone-number {
+    display: block;
+    font-size: 2em;
+    color: white;
+    text-decoration: none;
+}
+
+.home-boxes table.opening-hours {
+    width: 100%;
+    border-spacing: 0;
+}
+
+.home-boxes table.opening-hours tr.today {
+    background-color: #00547e;
+}
+
+.home-boxes table.opening-hours tr td {
+    border-bottom: solid 1px white;
+}
+
+.home-boxes table.opening-hours tr td.hours {
+    text-align: center;
+}
+
+/**
+    DOCTORS
+ */
+.doctors {
+    margin: 1em 0;
+}
+
+.doctors > .container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 1em;
+    grid-row-gap: 1em;
+}
+
+.doctors .form-appointment {
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+    border: 7px solid #eeeeee;
+    background-color: #f7f7f7;
+}
+
+.doctors .form-appointment h3 {
+    margin-top: 0;
+}
+
+.doctors .doctor-thumbnail {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: #00b3cc;
+}
+
+.doctors .doctor-thumbnail img {
+    width: 100%;
+}
+
+.doctors .doctor-thumbnail .doctor-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    padding: 1em 0;
+    color: white;
+}
+
+.doctors .doctor-thumbnail .doctor-details h4 {
+    font-size: 2em;
+    margin-top: 0.5em;
+    margin-bottom: 0;
+}
+
+@media only screen and (max-width: 991px) {
+    .container {
+        width: 100%;
+    }
+    .home-boxes > .container {
+        flex-direction: column;
+    }
+    footer.main-footer > .container {
+        flex-direction: column;
+    }
+    .doctors > .container {
+        grid-template-columns: 1fr;
+    }
 }

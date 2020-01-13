@@ -2,13 +2,127 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <link href="https://fonts.googleapis.com/css?family=Tangerine" rel="stylesheet">
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
         {% endblock %}
     </head>
+
     <body>
+    <header>
+        <div class="header-top">
+            <div class="container">
+                <div class="social-networks">
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                </div>
+                <div class="contact-infos">
+                    <ul>
+                        <li>
+                            <i class="fa fa-phone"></i>
+                            <a href="tel:0243785462">0243785462</a>
+                        </li>
+                        <li>
+                            <i class="fa fa-envelope"></i>
+                            <a href="mailto:contact@salutem.fr">contact@salutem.fr</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="header-middle">
+            <div class="container">
+                <div class="logo">
+                    <i class="fa fa-heartbeat"></i>
+                    Salutem
+                </div>
+                <div class="status">
+                    Votre centre est actuellement <span class="open">ouvert</span>
+                </div>
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="container">
+                <ul>
+                    <li><a href="#">Accueil</a></li>
+                    <li><a href="#">La maison médicale</a></li>
+                    <li><a href="#">Nos docteurs</a></li>
+                    <li><a href="#">Nous contacter</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <main>
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+    </main>
+
+    <footer class="main-footer">
+        <section class="container">
+            <article>
+                <div class="logo">
+                    <i class="fa fa-heartbeat"></i>
+                    Salutem
+                </div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus debitis, dolorem doloremque iste molestiae nulla officiis provident quas quos, rerum sapiente sed sint voluptas? Accusantium asperiores dolor dolores in libero?</p>
+            </article>
+            <article>
+                <h3>Nous contacter</h3>
+                <ul class="contact-infos">
+                    <li>
+                        <i class="fa fa-envelope"></i>
+                        <a href="mailto:contact@salutem.fr">contact@salutem.fr</a>
+                    </li>
+                    <li>
+                        <i class="fa fa-phone"></i>
+                        <a href="tel:0243785462">0243785462</a>
+                    </li>
+                    <li>
+                        <i class="fa fa-ambulance"></i>
+                        <a href="tel:0243785443">0243785443</a>
+                    </li>
+                </ul>
+            </article>
+            <article>
+                <h3>Horaires d'ouverture</h3>
+                <table class="opening-hours">
+                    <tr>
+                        <td>Lundi</td>
+                        <td class="hours">9h - 17h</td>
+                    </tr>
+                    <tr class="today">
+                        <td>Mardi</td>
+                        <td class="hours">9h - 17h</td>
+                    </tr>
+                    <tr>
+                        <td>Mercredi</td>
+                        <td class="hours">9h - 17h</td>
+                    </tr>
+                    <tr>
+                        <td>Jeudi</td>
+                        <td class="hours">9h - 17h</td>
+                    </tr>
+                    <tr>
+                        <td>Vendredi</td>
+                        <td class="hours">9h - 17h</td>
+                    </tr>
+                    <tr>
+                        <td>Samedi</td>
+                        <td class="hours">9h - 12h</td>
+                    </tr>
+                    <tr>
+                        <td>Dimanche</td>
+                        <td class="hours">Fermé</td>
+                    </tr>
+                </table>
+            </article>
+        </section>
+    </footer>
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+        {% endblock %}
     </body>
 </html>
