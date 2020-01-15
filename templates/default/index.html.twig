@@ -19,36 +19,23 @@
             </article>
             <article>
                 <h3>Horaires d'ouverture</h3>
+
+                <!-- boucle pour afficher les jours de la semaine, dans un tableau -->
                 <table class="opening-hours">
+                {% for openingHour in openingHours %}
                     <tr>
-                        <td>Lundi</td>
-                        <td class="hours">9h - 17h</td>
+                        <td>{{ openingHour.dayname }}</td>
+                        <td class="hours">
+                            <!-- if : afficher openingTime+closingTime, sinon : afficher "Fermé" -->
+                            {% if openingHour.openingTime %}
+                                {{ openingHour.openingTime|date('H:i') }} - {{ openingHour.closingTime|date('H:i') }}
+                                {% else %} Fermé
+                            {% endif %}
+                        </td>
                     </tr>
-                    <tr class="today">
-                        <td>Mardi</td>
-                        <td class="hours">9h - 17h</td>
-                    </tr>
-                    <tr>
-                        <td>Mercredi</td>
-                        <td class="hours">9h - 17h</td>
-                    </tr>
-                    <tr>
-                        <td>Jeudi</td>
-                        <td class="hours">9h - 17h</td>
-                    </tr>
-                    <tr>
-                        <td>Vendredi</td>
-                        <td class="hours">9h - 17h</td>
-                    </tr>
-                    <tr>
-                        <td>Samedi</td>
-                        <td class="hours">9h - 12h</td>
-                    </tr>
-                    <tr>
-                        <td>Dimanche</td>
-                        <td class="hours">Fermé</td>
-                    </tr>
+                {% endfor %}
                 </table>
+
             </article>
             <article>
                 <h3>Numéro d'urgence</h3>
@@ -63,6 +50,7 @@
 
     <section class="doctors">
         <div class="container">
+            <!-- Formulaire = static -->
             <article>
                 <form class="form-appointment">
                     <h3>Prendre rendez-vous</h3>
@@ -72,7 +60,7 @@
                     <input type="tel" required placeholder="Téléphone">
                     <input type="date" required placeholder="Date">
                     <input type="time" step="900" required placeholder="Heure">
-                    <select required >
+                    <select required>
                         <option disabled selected>Choisissez une spécialité</option>
                         <option>Médecin Généraliste</option>
                         <option>Dentiste</option>
@@ -87,39 +75,13 @@
                     </button>
                 </form>
             </article>
-            <article class="doctor-thumbnail">
-                <img src="uploads/doctor-1.jpg" alt="Jack Smith">
-                <div class="doctor-details">
-                    <h4>Jack Smith</h4>
-                    <p>Homéopathe / Ostéopathe</p>
-                    <a href="#" class="btn btn-dark">
-                        <i class="fa fa-eye"></i>
-                        Plus d'informations
-                    </a>
-                </div>
-            </article>
-            <article class="doctor-thumbnail">
-                <img src="uploads/doctor-2.jpg" alt="Norma Pedric">
-                <div class="doctor-details">
-                    <h4>Norma Pedric</h4>
-                    <p>Médecin Généraliste</p>
-                    <a href="#" class="btn btn-dark">
-                        <i class="fa fa-eye"></i>
-                        Plus d'informations
-                    </a>
-                </div>
-            </article>
-            <article class="doctor-thumbnail">
-                <img src="uploads/doctor-3.jpg" alt="Maria Martin">
-                <div class="doctor-details">
-                    <h4>Maria Martin</h4>
-                    <p>Dentiste</p>
-                    <a href="#" class="btn btn-dark">
-                        <i class="fa fa-eye"></i>
-                        Plus d'informations
-                    </a>
-                </div>
-            </article>
+
+            <!-- boucle pour afficher la photo, le nom et les compétences des médecins -->
+            <!-- boucle présente deux fois : création d'un fichier "_thumbnail.html.twig" qui contient la fameuse boucle -->
+            {% for doctor in doctors  %}
+                {% include 'doctor/_thumbnail.html.twig' with {'doctor': doctor} %} <!-- with : pour éviter les conflits entre les fichiers -->
+            {% endfor %}
+
         </div>
     </section>
 {% endblock %}

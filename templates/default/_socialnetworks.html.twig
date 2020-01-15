@@ -1,0 +1,5 @@
+<div class="social-networks">
+    {% for socialNetwork in socialNetworks  %}
+        <a href="{{ socialNetwork.url }}"><i class="fa {{ socialNetwork.icone }}"></i></a>
+    {% endfor %}
+</div>

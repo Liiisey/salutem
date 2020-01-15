@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{ doctor.fullName }} {% endblock %}
+
+{% block body %}
+    <div class="container">
+        <!-- afficher le nom du médecin dont s'est la fiche -->
+        <h1> {{ doctor.fullName }}</h1>
+        <!-- afficher son image de profil -->
+        <img src="{{ asset('uploads/' ~ doctor.photo) }}" alt="{{ doctor.fullName }}">
+        <p> Compétences : </p>
+        <ul>
+            <!-- boucle pour afficher les compétences des médecins, sinon : afficher "Aucune compétence" -->
+            {% for skill in doctor.skills  %}
+                <li>{{ skill.label }}</li>
+            {% else %}
+                <li>Aucune compétence</li>
+            {% endfor %}
+        </ul>
+        <!-- afficher sa description -->
+        <p> {{ doctor.description }} </p>
+    </div>
+{% endblock %}

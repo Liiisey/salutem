@@ -13,11 +13,7 @@
     <header>
         <div class="header-top">
             <div class="container">
-                <div class="social-networks">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                </div>
+                {{ render(controller('App\\Controller\\DefaultController::headerSocialNetworks')) }}
                 <div class="contact-infos">
                     <ul>
                         <li>
@@ -46,9 +42,9 @@
         <div class="header-menu">
             <div class="container">
                 <ul>
-                    <li><a href="#">Accueil</a></li>
+                    <li><a href=" {{ path('homepage') }}">Accueil</a></li>
                     <li><a href="#">La maison médicale</a></li>
-                    <li><a href="#">Nos docteurs</a></li>
+                    <li><a href="{{ path('doctor_index') }}">Nos docteurs</a></li>
                     <li><a href="#">Nous contacter</a></li>
                 </ul>
             </div>

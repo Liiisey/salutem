@@ -304,6 +304,11 @@ footer.main-footer table.opening-hours tr td.hours {
 /**
     DOCTORS
  */
+/** Afficher un / entre les deux skills des docteurs */
+.doctors .doctor-details .doctor-skills > span:not(:last-child):after {
+    content: "/";
+}
+
 .doctors {
     margin: 1em 0;
 }

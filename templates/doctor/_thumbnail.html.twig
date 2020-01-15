@@ -1,0 +1,16 @@
+<!-- boucle pour afficher la photo, le nom et les compétences des médecins -->
+<article class="doctor-thumbnail">
+    <img src="{{ asset('uploads/' ~ doctor.photo) }}" alt="{{ doctor.fullName }}">
+    <div class="doctor-details">
+        <h4>{{ doctor.fullName }}</h4>
+        <p class="doctor-skills">
+            {% for skill in doctor.skills  %}
+                <span>{{ skill.label }}</span>
+            {% endfor %}
+        </p>
+        <a href="{{ path('doctor_show', {'id': doctor.id})}}" class="btn btn-dark">
+            <i class="fa fa-eye"></i>
+            Plus d'informations
+        </a>
+    </div>
+</article>

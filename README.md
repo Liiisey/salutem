@@ -5,9 +5,22 @@
 ```shell
 composer install
 npm install
+```
+
+Créer la connection à la base de données (fichier .env.local avec DATABASE_URL).
+
+```shell
 php bin/console doctrine:database:create
 php bin/console doctrine:migrations:migrate
 ```
+
+Générer les fixtures :
+
+```shell
+php bin/console doctrine:migrations:migrate
+```
+
+Puis mettre les images dynamiques dans le dossier public/uploads
 
 ```shell
 symfony serve
@@ -96,4 +109,37 @@ Exécuter les migrations
 
 ```shell
 php bin/console doctrine:migrations:migrate
+```
+
+En cas de problème :
+1. Supprimer les fichiers de migration
+2. Supprimer puis recréer la base de données :
+```shell
+php bin/console doctrine:database:drop --force
+php bin/console doctrine:database:create
+```
+3. Récréer le fichier de migration puis executer les migrations :
+```shell
+php bin/console make:migration
+php bin/console doctrine:migrations:migrate
+```
+
+### Création des données de test
+
+https://symfony.com/doc/current/bundles/DoctrineFixturesBundle/index.html
+
+```shell
+composer req --dev orm-fixtures
+```
+
+Générer des fichiers de fixtures :
+
+```shell
+php bin/console make:fixtures
+```
+
+Exécuter les fixtures :
+
+```shell
+php bin/console doctrine:fixtures:load
 ```

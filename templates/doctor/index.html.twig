@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des docteurs{% endblock %}
+
+{% block body %}
+    <!-- juste pour faire beau, mettre un titre h1 -->
+    <section class="container">
+        <h1>La liste de nos supers docteurs</h1>
+    </section>
+
+    <!-- Afficher uniquement la liste des docteurs -->
+    <section class="doctors">
+        <div class="container">
+            <!-- boucle pour afficher la photo, le nom et les compétences des médecins -->
+            <!-- boucle présente deux fois : création d'un fichier "_thumbnail.html.twig" qui contient la fameuse boucle -->
+            {% for doctor in doctors  %}
+                {% include 'doctor/_thumbnail.html.twig' with {'doctor': doctor} %} <!-- with : pour éviter les conflits entre les fichiers -->
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}
