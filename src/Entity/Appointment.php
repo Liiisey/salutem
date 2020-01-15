@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\AppointmentRepository")
+ * @ORM\HasLifecycleCallbacks
  */
 class Appointment
 {
@@ -62,10 +63,17 @@ class Appointment
      */
     private $doctor;
 
+    //php bin/console make:entity -> Appointment ->createdAt
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $createdAt;
+
     public function getId(): ?int
     {
         return $this->id;
     }
+    /////////////////////////////////////////////////////////
 
     public function getFirstname(): ?string
     {
@@ -173,5 +181,25 @@ class Appointment
         $this->doctor = $doctor;
 
         return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    //Pour enregistrer la date et l'heure quand les utilisateurs clique sur "Envoyer" dans le formulaire
+    /**
+     * @ORM\PrePersist
+     */
+    public function prePersist() {
+        $this->setCreatedAt(new \DateTime()); //DateTime() : date, heure, minutes de maintenant
     }
 }
