@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\AppointmentRepository")
@@ -29,7 +30,9 @@ class Appointment
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Email(message="Email non valide")
      */
+    //Assert\Email => contrainte pour remplir le champ email, même si l'internaute modifie l'input via l'inspecteur
     private $email;
 
     /**
@@ -44,7 +47,9 @@ class Appointment
 
     /**
      * @ORM\Column(type="date")
+     * @Assert\GreaterThan("today UTC", message="La date doit être supérieure à {{ compared_value }}")
      */
+    //contrainte : l'internaute ne peut pas prendre de RDV dans le passé
     private $date;
 
     /**

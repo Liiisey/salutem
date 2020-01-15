@@ -11,6 +11,14 @@
 
     <body>
     <header>
+        <!-- message flash dans le header une fois l'enregistrement du RDV effectué -->
+        {% if app.flashes('notice') %}
+            <div class="container">
+                {% for message in app.flashes ('notice') %}
+                    <p>{{ message }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
         <div class="header-top">
             <div class="container">
                 {{ render(controller('App\\Controller\\DefaultController::headerSocialNetworks')) }}

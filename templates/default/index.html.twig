@@ -52,36 +52,13 @@
         <div class="container">
             <!-- Formulaire = static -->
             <article>
-                <form class="form-appointment">
-                    <h3>Prendre rendez-vous</h3>
-                    <input type="text" required placeholder="Nom">
-                    <input type="text" required placeholder="Prénom">
-                    <input type="email" placeholder="Email">
-                    <input type="tel" required placeholder="Téléphone">
-                    <input type="date" required placeholder="Date">
-                    <input type="time" step="900" required placeholder="Heure">
-                    <select required>
-                        <option disabled selected>Choisissez une spécialité</option>
-                        <option>Médecin Généraliste</option>
-                        <option>Dentiste</option>
-                        <option>Infirmier</option>
-                        <option>Homéopathe</option>
-                        <option>Osthéopathe</option>
-                    </select>
-                    <textarea placeholder="Votre message"></textarea>
-                    <button type="submit" class="btn btn-light">
-                        <i class="fa fa-check"></i>
-                        Envoyer
-                    </button>
-                </form>
+                 {% include 'appointment/_form.html.twig' with {'form': appointmentForm} %}
             </article>
-
             <!-- boucle pour afficher la photo, le nom et les compétences des médecins -->
-            <!-- boucle présente deux fois : création d'un fichier "_thumbnail.html.twig" qui contient la fameuse boucle -->
+            <!-- boucle présente deux fois => création d'un fichier "_thumbnail.html.twig" qui contient la fameuse boucle -->
             {% for doctor in doctors  %}
                 {% include 'doctor/_thumbnail.html.twig' with {'doctor': doctor} %} <!-- with : pour éviter les conflits entre les fichiers -->
             {% endfor %}
-
         </div>
     </section>
 {% endblock %}
