@@ -1,0 +1,7 @@
+#Interface administrateur => générée grâce à la commande "composer req admin"
+easy_admin:
+    entities:
+        # List the entity class name you want to manage
+        - App\Entity\Doctor
+        - App\Entity\Skill
+        - App\Entity\Appointment

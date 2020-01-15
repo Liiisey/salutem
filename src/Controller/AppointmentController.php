@@ -20,7 +20,7 @@ class AppointmentController extends AbstractController
      * @Route("/", name="appointment_index", methods={"GET"})
      * @IsGranted("ROLE_ADMIN")
      */
-    //IsGranted : "sécurité" qui permet de voir la liste de tous les RDV,
+    //IsGranted : "sécurité" qui permet de voir la liste de tous les RDV, et être administrateur du site
     public function index(AppointmentRepository $appointmentRepository): Response
     {
         return $this->render('appointment/index.html.twig', [

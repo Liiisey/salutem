@@ -7,14 +7,12 @@
         <article class="container">
             <h1>Salutem</h1>
             <!-- if pour afficher l'adrese mail de l'utilisateur quand il est connecté -->
-            <h2>
+            <h2>Maison de santé</h2>
                 {% if app.user %}
-                    Bonjour {{ app.user.email }}
-                {% else %}
-                    {{ "Maison de santé" }}
+                    <p>Bonjour {{ app.user.email }}</p>
                 {% endif %}
-            </h2>
             <a href="#appointment" class="btn btn-dark">Prendre rendez-vous</a>
+            <br>
         </article>
     </section>
     <section class="home-boxes">
